@@ -1,0 +1,397 @@
+/* =====================================================
+   VARIABLES GENERALES
+   :root guarda valores reutilizables en todo el CSS.
+   Ejemplo: color: var(--pink);
+   ===================================================== */
+:root {
+    --bg: #06050a;
+    --text: #f5eff8;
+    --muted: #a69cab;
+    --pink: #ff2b7a;
+}
+
+/* RESET BÁSICO
+   * significa todos los elementos.
+   Elimina márgenes automáticos y facilita controlar tamaños. */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+button,
+a {
+    font: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* =====================================================
+   HERO
+   display:grid crea la retícula.
+   grid-template-columns divide el banner en izquierda / centro / derecha.
+   ===================================================== */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    align-items: center;
+
+    padding: 90px 7vw 150px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(4,3,8,.9),
+            rgba(4,3,8,.25) 50%,
+            rgba(4,3,8,.9)
+        ),
+        url("../assets/images/fondo-cyber.webp") center/cover no-repeat;
+}
+
+/* =====================================================
+   HEADER
+   position:absolute lo coloca encima del Hero.
+   display:flex organiza logo, menú y botón en una línea.
+   z-index controla qué elemento queda delante.
+   ===================================================== */
+.hero-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 72px;
+    padding: 0 4vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(4,3,8,.55);
+    backdrop-filter: blur(8px);
+    z-index: 10;
+}
+
+.brand {
+    font-weight: 800;
+    letter-spacing: .08em;
+}
+
+.hero-nav {
+    display: flex;
+    gap: 28px;
+}
+
+.hero-nav a {
+    font-size: .7rem;
+    letter-spacing: .1em;
+}
+
+.join-btn {
+    border: 0;
+    padding: 12px 18px;
+    border-radius: 8px;
+    background: var(--pink);
+    color: white;
+    cursor: pointer;
+}
+
+/* =====================================================
+   TÍTULO GRANDE DEL FONDO
+   position:absolute permite colocarlo detrás del personaje.
+   translateX(-50%) ayuda a centrarlo.
+   ===================================================== */
+.mega-title {
+    position: absolute;
+    top: 24%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100%;
+    text-align: center;
+
+    font-size: clamp(5rem, 12vw, 12rem);
+    font-weight: 900;
+    letter-spacing: -.06em;
+
+    color: rgba(240,220,240,.65);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* =====================================================
+   TEXTOS LATERALES
+   .hero-copy es reutilizable.
+   .hero-left y .hero-right cambian únicamente su posición.
+   ===================================================== */
+.hero-copy {
+    position: relative;
+    z-index: 5;
+    max-width: 320px;
+}
+
+.hero-left {
+    justify-self: start;
+}
+
+.hero-right {
+    justify-self: end;
+}
+
+.eyebrow {
+    margin-bottom: 14px;
+    font-size: .62rem;
+    letter-spacing: .22em;
+    color: var(--muted);
+}
+
+.pink {
+    color: var(--pink);
+}
+
+.hero-copy h1,
+.hero-copy h2 {
+    margin-bottom: 16px;
+    color: var(--pink);
+    letter-spacing: .08em;
+}
+
+.hero-copy p {
+    margin-bottom: 22px;
+    color: var(--muted);
+    font-size: .78rem;
+    line-height: 1.7;
+}
+
+.outline-btn {
+    border: 1px solid rgba(255,43,122,.45);
+    background: rgba(8,6,12,.55);
+    color: rgb(66, 5, 45);
+
+    padding: 11px 16px;
+    cursor: pointer;
+}
+
+/* =====================================================
+   PERSONAJE CENTRAL
+   .character-wrap reserva el espacio.
+   .character-bob recibe la animación.
+   .hero-character controla el PNG.
+   ===================================================== */
+.character-wrap {
+    position: relative;
+    z-index: 4;
+
+    align-self: end;
+    justify-self: center;
+
+    height: calc(100vh - 72px);
+    width: min(48vw, 680px);
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.character-bob {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    animation: characterFloat 4.8s ease-in-out infinite;
+}
+
+.hero-character {
+    position: relative;
+    z-index: 2;
+
+    height: min(88vh, 940px);
+    max-width: none;
+
+    transform: translateY(8%);
+
+    filter:
+        drop-shadow(0 0 10px rgba(255,43,122,.35))
+        drop-shadow(0 0 35px rgba(120,60,255,.20));
+}
+
+.character-aura {
+    position: absolute;
+    left: 50%;
+    bottom: 8%;
+
+    width: 70%;
+    aspect-ratio: 1;
+
+    transform: translateX(-50%);
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(184, 24, 82, 0.25),
+            rgba(86, 2, 60, 0.08) 50%,
+            transparent 72%
+        );
+
+    filter: blur(20px);
+
+    animation: auraPulse 2.6s ease-in-out infinite;
+}
+
+/* =====================================================
+   PANEL INFERIOR
+   repeat(3, 1fr) crea tres columnas iguales.
+   ===================================================== */
+.stats-panel {
+    position: absolute;
+    left: 50%;
+    bottom: 26px;
+
+    transform: translateX(-50%);
+
+    width: min(88vw, 1040px);
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    background: rgba(125, 7, 68, 0.76);
+    border: 1px solid rgba(65, 2, 45, 0.12);
+    backdrop-filter: blur(10px);
+
+    z-index: 8;
+}
+
+.stat-card {
+    padding: 20px 24px;
+    border-right: 1px solid rgba(255,255,255,.08);
+}
+
+.stat-card:last-child {
+    border-right: 0;
+}
+
+.stat-label {
+    display: block;
+    font-size: .62rem;
+    margin-bottom: 6px;
+}
+
+.stat-card strong {
+    display: block;
+    color: var(--pink);
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.stat-card small {
+    color: var(--muted);
+}
+
+/* =====================================================
+   CANVAS DE PARTÍCULAS
+   inset:0 hace que cubra todo el Hero.
+   z-index 2 lo deja detrás del personaje.
+   pointer-events:none evita que bloquee clics.
+   ===================================================== */
+.energy-particles {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* =====================================================
+   ANIMACIONES
+   @keyframes define cómo cambia un elemento durante la animación.
+   ===================================================== */
+@keyframes characterFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes auraPulse {
+    0%,
+    100% {
+        opacity: .65;
+        transform: translateX(-50%) scale(.96);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1.06);
+    }
+}
+
+/* =====================================================
+   RESPONSIVE
+   @media cambia el diseño según el ancho de pantalla.
+   ===================================================== */
+@media (max-width: 900px) {
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 110px 24px 430px;
+        gap: 24px;
+    }
+
+    .hero-nav {
+        display: none;
+    }
+
+    .hero-right {
+        justify-self: start;
+    }
+
+    .character-wrap {
+        position: absolute;
+        left: 50%;
+        bottom: 100px;
+
+        transform: translateX(-50%);
+
+        width: 92vw;
+        height: 560px;
+    }
+
+    .hero-character {
+        height: 560px;
+    }
+
+    .stats-panel {
+        width: calc(100% - 24px);
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        border-right: 0;
+        border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+}

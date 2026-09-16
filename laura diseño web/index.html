@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Configuración básica del documento -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBER OF X — Hero Banner</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HERO BANNER
+         Esta es la única sección del ejercicio.
+         ===================================================== -->
+    <section class="hero">
+
+        <!-- CANVAS:
+             Superficie donde JavaScript dibuja las partículas de energía.
+             id="energyParticles" permite que JavaScript encuentre este elemento. -->
+        <canvas id="energyParticles" class="energy-particles"></canvas>
+
+        <!-- DIV .mega-title:
+             Texto gigante decorativo ubicado detrás del personaje. -->
+        <div class="mega-title">LAURAVERSE</div>
+
+        <!-- HEADER:
+             Zona superior del banner. Contiene marca, menú y botón principal. -->
+        <header class="hero-header">
+            <!-- A .brand: enlace que funciona como marca o logo. -->
+            <a href="#" class="brand">LAURAVERSE</a>
+
+            <!-- NAV: agrupa los enlaces principales del menú. -->
+            <nav class="hero-nav">
+                <a href="#">HOME</a>
+                <a href="#">ABOUT</a>
+                <a href="#">GAMES</a>
+                <a href="#">MARKETPLACE</a>
+                <a href="#">COMMUNITY</a>
+            </nav>
+
+            <!-- BUTTON: botón principal del encabezado. -->
+            <button class="join-btn">JOIN US →</button>
+        </header>
+
+        <!-- DIV .hero-copy .hero-left:
+             Bloque informativo ubicado a la izquierda.
+             Reutiliza hero-copy y hero-left define su posición. -->
+        <div class="hero-copy hero-left">
+            <!-- P .eyebrow: texto pequeño introductorio. -->
+            <p class="eyebrow">ENTER THE NEXT DIMENSION</p>
+            <!-- H1: título principal del Hero. -->
+            <h1>CYBER OF X</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+
+            <!-- CTA: Call To Action o llamado a la acción. -->
+            <button class="outline-btn">EXPLORE NOW ↗</button>
+        </div>
+
+        <!-- DIV .character-wrap:
+             Contenedor externo del personaje. Controla posición y tamaño. -->
+        <div class="character-wrap">
+            <!-- DIV .character-bob: capa usada para la animación flotante. -->
+            <div class="character-bob">
+                <!-- DIV .character-aura: CSS lo convierte en un brillo decorativo. -->
+                <div class="character-aura"></div>
+
+                <!-- IMG: inserta el PNG del personaje.
+                     src = ruta | alt = descripción | class = estilo CSS -->
+                <img
+                    src="assets/images/modelo-cyber.webp"
+                    alt="Modelo cyberpunk"
+                    class="hero-character"
+                >
+            </div>
+        </div>
+
+        <!-- DIV .hero-copy .hero-right:
+             Segundo bloque informativo, ubicado a la derecha. -->
+        <div class="hero-copy hero-right">
+            <p class="eyebrow pink">FUTURE HUMANITY MEETS REALITY</p>
+            <h2>THE FUTURE</h2>
+            <p>
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+
+            <button class="outline-btn">▶ WATCH TRAILER</button>
+        </div>
+
+        <!-- DIV .stats-panel:
+             Panel inferior organizado en tres tarjetas de datos. -->
+        <div class="stats-panel">
+            <!-- .stat-card: una tarjeta individual de información. -->
+            <div class="stat-card">
+                <span class="stat-label">ACTIVE USERS</span>
+                <strong>+15</strong>
+                <small>Lorem ipsum dolor sit amet.</small>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-label">GAMES ONLINE</span>
+                <strong>+25</strong>
+                <small>Lorem ipsum dolor sit amet.</small>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-label">GLOBAL COMMUNITY</span>
+                <strong>+8</strong>
+                <small>Lorem ipsum dolor sit amet.</small>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- SCRIPT: conecta JavaScript. Se coloca al final para cargar primero el HTML. -->
+    <script src="js/script.js"></script>
+</body>
+</html>
